@@ -9,6 +9,7 @@ class App extends React.Component {
     this.state = {
       value: 'Beef',
       recipes: [],
+      ingredients: [],
       click: false
     }
     this.handleChange = this.handleChange.bind(this);
@@ -32,11 +33,13 @@ class App extends React.Component {
       })
   }
 
-  handleRecipeClick(event) {
-    event.preventDefault();
-    console.log('handlerecipeclick before', this.state.click)
-    this.setState({click: true})
-    console.log('handlerecipeclick after', this.state.click)
+  handleRecipeClick(ingredients) {
+    // event.preventDefault();
+    this.setState({
+      click: true,
+      ingredients: ingredients
+    })
+    // get ingredients list from recipe clicked
   }
 
   handleBackClick(event) {
@@ -49,7 +52,7 @@ class App extends React.Component {
     if (!this.state.click) {
       component = <RecipeList recipes={this.state.recipes} handleClick={this.handleRecipeClick}/>;
     } else {
-      component = <IngredientsList handleClick={this.handleBackClick}/>;
+      component = <IngredientsList ingredients={this.state.ingredients} handleClick={this.handleBackClick}/>;
     }
     return (
     <div>

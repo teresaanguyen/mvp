@@ -1,5 +1,5 @@
 import React from 'react';
-// import IngredientsListEntry from './IngredientsListEntry.jsx'
+import IngredientsListEntry from './IngredientsListEntry.jsx'
 
 class IngredientsList extends React.Component {
   constructor(props) {
@@ -13,9 +13,9 @@ class IngredientsList extends React.Component {
       <div>
         <button onClick={this.props.handleClick} >Back</button>
         <h3>Ingredients:</h3>
-          {/* {this.props.recipes.map(recipe => {
-            return <IngredientsListEntry ingredient={recipe} key={recipe.id} onClick={this.handleRecipeClick}/>
-          })} */}
+          {this.props.ingredients.map(ingredient => {
+            return <IngredientsListEntry ingredient={ingredient} key={ingredient.id} handleClick={this.handleClick}/>
+          })}
           <div>INGREDIENTS</div>
       </div>
     )
