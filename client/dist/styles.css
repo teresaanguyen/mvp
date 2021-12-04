@@ -1,0 +1,28 @@
+html {
+  background-color: grey;
+  font-family: 'Merriweather', serif;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+#app {
+  background-color: white;
+  height: 90%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  padding-top: 0%;
+  overflow: scroll;
+}
+
+h1 {
+  font-size: 70px;
+  background-color: white;
+}

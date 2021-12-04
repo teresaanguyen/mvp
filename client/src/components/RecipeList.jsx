@@ -8,7 +8,7 @@ class RecipeList extends React.Component {
   }
 
   render() {
-    console.log('these are the recipe list', this.props.recipes)
+    // console.log('these are the recipe list', this.props.recipes)
     return (
       <div>
         <h3>Recipes:</h3>

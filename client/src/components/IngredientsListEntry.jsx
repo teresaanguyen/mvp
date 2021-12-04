@@ -7,9 +7,8 @@ class IngredientsListEntry extends React.Component {
   }
 
   render() {
-    console.log('entry', this.props.ingredient.raw_text)
     return (
-      <div>{this.props.ingredient.raw_text}</div>
+      <li>{this.props.ingredient.raw_text}</li>
     )
   }
 }

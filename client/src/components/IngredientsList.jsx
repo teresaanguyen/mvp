@@ -1,5 +1,6 @@
 import React from 'react';
-import IngredientsListComp from './IngredientsListComp.jsx'
+import IngredientsListComp from './IngredientsListComp.jsx';
+import Instruction from './Instruction.jsx';
 
 class IngredientsList extends React.Component {
   constructor(props) {
@@ -8,14 +9,18 @@ class IngredientsList extends React.Component {
   }
 
   render() {
-    console.log('these are the recipe list', this.props.comp)
     return (
       <div>
         <button onClick={this.props.handleClick} >Back</button>
-        <h3>Ingredients:</h3>
           {this.props.comp.map(comp => {
             return <IngredientsListComp comp={comp} key={comp.position} handleClick={this.handleClick}/>
           })}
+          <h3>Instructions:</h3>
+          <ol>
+          {this.props.instr.map(instruction => {
+            return <Instruction instr={instruction.display_text} key={instruction.position} />
+          })}
+          </ol>
       </div>
     )
   }

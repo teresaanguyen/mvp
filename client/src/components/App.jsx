@@ -10,6 +10,7 @@ class App extends React.Component {
       value: 'Beef',
       recipes: [],
       comp: [],
+      instr: [],
       click: false
     }
     this.handleChange = this.handleChange.bind(this);
@@ -33,13 +34,12 @@ class App extends React.Component {
       })
   }
 
-  handleRecipeClick(comp) {
-    // event.preventDefault();
+  handleRecipeClick(comp, instr) {
     this.setState({
       click: true,
-      comp: comp
+      comp: comp,
+      instr: instr
     })
-    // get ingredients list from recipe clicked
   }
 
   handleBackClick(event) {
@@ -50,9 +50,9 @@ class App extends React.Component {
   render() {
     let component;
     if (!this.state.click) {
-      component = <RecipeList recipes={this.state.recipes} handleClick={this.handleRecipeClick}/>;
+      component = <RecipeList recipes={this.state.recipes} handleClick={this.handleRecipeClick} click={this.state.click} />;
     } else {
-      component = <IngredientsList comp={this.state.comp} handleClick={this.handleBackClick}/>;
+      component = <IngredientsList comp={this.state.comp} instr={this.state.instr} handleClick={this.handleBackClick}/>;
     }
     return (
     <div>
@@ -60,14 +60,14 @@ class App extends React.Component {
       <div>Select Your Ingredient: </div>
       <form onSubmit={this.handleSubmit}>
         <select value={this.state.value} onChange={this.handleChange}>
-          <option value="Beef">Beef</option>
           <option value="Chicken">Chicken</option>
           <option value="Pork">Pork</option>
-          <option value="Tofu">Tofu</option>
+          <option value="Beef">Beef</option>
           <option value="Ground Beef">Ground Beef</option>
-          <option value="Eggs">Eggs</option>
-          <option value="Cheese">Cheese</option>
           <option value="Steak">Steak</option>
+          <option value="Salmon">Salmon</option>
+          <option value="Tuna">Tuna</option>
+          <option value="Tofu">Tofu</option>
         </select>
         <input type="submit" value="Submit" />
       </form>
