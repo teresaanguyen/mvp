@@ -1,10 +1,12 @@
 import React from 'react';
+import axios from 'axios';
 import RecipeList from './RecipeList.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      value: 'Beef',
       recipes: []
     }
     this.handleChange = this.handleChange.bind(this);
@@ -16,8 +18,14 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Your picked: ' + this.state.value);
     event.preventDefault();
+    axios.get(`/recipes/list/${this.state.value}`)
+      .then((response) => {
+        this.setState({recipes: response.data})
+      })
+      .catch((err) => {
+        console.error('submit error', err)
+      })
   }
 
   render() {
@@ -41,7 +49,7 @@ class App extends React.Component {
       <br />
       <br />
       <div>Recipes:</div>
-      < RecipeList recipes={this.state.recipes}/>
+      <RecipeList recipes={this.state.recipes}/>
     </div>
     )
   }

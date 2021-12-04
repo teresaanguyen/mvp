@@ -1,4 +1,5 @@
 import React from 'react';
+import RecipeListEntry from './RecipeListEntry.jsx'
 
 class RecipeList extends React.Component {
   constructor(props) {
@@ -7,15 +8,14 @@ class RecipeList extends React.Component {
   }
 
   render() {
+    console.log('these are the recipe list', this.props.recipes)
     return (
       <div>
-        <ol>
-          <li>Chicken Soup</li>
-          <li>Chicken Noodle Soup</li>
-          <li>Creamy Chicken Soup</li>
-          <li>Chicken1</li>
-          <li>Chicken2</li>
-        </ol>
+        <ul>
+          {this.props.recipes.map(recipe => {
+            return <RecipeListEntry recipe={recipe} key={recipe.id}/>
+          })}
+        </ul>
       </div>
     )
   }

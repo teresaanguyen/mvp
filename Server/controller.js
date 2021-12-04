@@ -11,8 +11,8 @@ module.exports = {
       }
     })
     .then((response) => {
-      console.log('req.params.ingredient', req.params.ingredient)
-      res.status(200).send(response.data)
+      // console.log('req.params.ingredient', req.params.ingredient)
+      res.status(200).send(response.data.results)
     })
     .catch((err) => {
       res.status(400).send(err);
@@ -23,7 +23,7 @@ module.exports = {
       params: {id: `${req.params.id}`},
       headers: {
         'x-rapidapi-host': 'tasty.p.rapidapi.com',
-        'x-rapidapi-key': 'b5a85208c0mshed3611c5e11ec8cp1c2311jsn5db1946371c2'
+        'x-rapidapi-key': `${config.API_KEY}`
       }
     })
     .then((response) => {
