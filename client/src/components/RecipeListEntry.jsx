@@ -8,7 +8,11 @@ class RecipeListEntry extends React.Component {
 
   render() {
     return (
-      <li>{this.props.recipe.name}</li>
+      <div>
+        <img src={this.props.recipe.thumbnail_url} width="20%" height="20%" onClick={this.props.handleClick}/>
+        <br />
+        {this.props.recipe.name}
+      </div>
     )
   }
 }

@@ -11,11 +11,10 @@ class RecipeList extends React.Component {
     console.log('these are the recipe list', this.props.recipes)
     return (
       <div>
-        <ul>
+        <h3>Recipes:</h3>
           {this.props.recipes.map(recipe => {
-            return <RecipeListEntry recipe={recipe} key={recipe.id}/>
+            return <RecipeListEntry recipe={recipe} key={recipe.id} handleClick={this.props.handleClick}/>
           })}
-        </ul>
       </div>
     )
   }
