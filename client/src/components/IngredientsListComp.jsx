@@ -11,7 +11,7 @@ class IngredientsListComp extends React.Component {
     const title = this.props.comp.name || 'Ingredients';
     return (
       <div>
-        <h3>{title}</h3>
+        <h4>{title}</h4>
         <ul>
             {this.props.comp.components.map(ingredient => {
               return <IngredientsListEntry ingredient={ingredient} key={ingredient.position} handleClick={this.handleClick}/>

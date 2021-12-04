@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'Beef',
+      value: 'Chicken',
       recipes: [],
       comp: [],
       instr: [],
@@ -34,11 +34,12 @@ class App extends React.Component {
       })
   }
 
-  handleRecipeClick(comp, instr) {
+  handleRecipeClick(comp, instr, name) {
     this.setState({
       click: true,
       comp: comp,
-      instr: instr
+      instr: instr,
+      title: name
     })
   }
 
@@ -52,7 +53,7 @@ class App extends React.Component {
     if (!this.state.click) {
       component = <RecipeList recipes={this.state.recipes} handleClick={this.handleRecipeClick} click={this.state.click} />;
     } else {
-      component = <IngredientsList comp={this.state.comp} instr={this.state.instr} handleClick={this.handleBackClick}/>;
+      component = <IngredientsList comp={this.state.comp} instr={this.state.instr} title={this.state.title} handleClick={this.handleBackClick}/>;
     }
     return (
     <div>
@@ -62,8 +63,8 @@ class App extends React.Component {
         <select value={this.state.value} onChange={this.handleChange}>
           <option value="Chicken">Chicken</option>
           <option value="Pork">Pork</option>
+          <option value="Turkey">Turkey</option>
           <option value="Beef">Beef</option>
-          <option value="Ground Beef">Ground Beef</option>
           <option value="Steak">Steak</option>
           <option value="Salmon">Salmon</option>
           <option value="Tuna">Tuna</option>

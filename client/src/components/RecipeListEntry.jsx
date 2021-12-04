@@ -9,12 +9,12 @@ class RecipeListEntry extends React.Component {
   render() {
     const comp = this.props.recipe.sections;
     const instr = this.props.recipe.instructions;
-    // console.log('instructions', instr)
+    const name = this.props.recipe.name;
     return (
       <div>
-        <img src={this.props.recipe.thumbnail_url} width="20%" height="20%" onClick={() => this.props.handleClick(comp, instr)}/>
+        <img src={this.props.recipe.thumbnail_url} width="20%" height="20%" onClick={() => this.props.handleClick(comp, instr, name)}/>
         <br />
-        {this.props.recipe.name}
+        {name}
       </div>
     )
   }
